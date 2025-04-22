@@ -346,7 +346,7 @@ function fetchDataAndUpdateBox3() {
 
       // Change the image in Box3
       const image = document.createElement("img");
-      image.src = `./animations/${data.result}.gif`; // Update with the correct image path
+      image.src = `/static/animations/${data.result}.gif`; // Update with the correct image path
       image.alt = "Description of image";
       image.style.width = "70px"; // Adjust the size as needed
       image.style.height = "70px"; // Adjust the size as needed

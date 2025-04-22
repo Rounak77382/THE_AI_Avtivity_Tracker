@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, send_from_directory
-import afkdetector2
+from core.afkdetector2 import afkDetector
 
-app = Flask(__name__, static_folder='.')
+app = Flask(__name__, static_folder='./web')
 
 @app.route('/')
 def index():
@@ -13,8 +13,8 @@ def static_file(path):
 
 @app.route('/detect_afk', methods=['GET'])
 def detect_afk():
-    result = afkdetector2.afkDetector()  
+    result = afkDetector()  
     return jsonify(result=result)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=3000)  
+    app.run(debug=True, port=3000)

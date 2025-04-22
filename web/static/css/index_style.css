@@ -7,17 +7,17 @@ body {
 
 @font-face {
     font-family: 'Reiswar';
-    src: url('Reiswar.ttf') format('truetype');
+    src: url('/web/static/fonts/Reiswar.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'montserrat bold';
-    src: url('Montserrat-Bold.ttf') format('truetype');
+    src: url('/web/static/fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'poppins light';
-    src: url('Poppins-Light.ttf') format('truetype');
+    src: url('/web/static/fonts/Poppins-Light.ttf') format('truetype');
 }
 
 .Main_heading {
