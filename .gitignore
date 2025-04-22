@@ -28,8 +28,6 @@ logs/
 # User-specific files
 *.json_names.json
 
-# Fonts (optional resources)
-*.ttf
 
 # Temporary files
 *.tmp
