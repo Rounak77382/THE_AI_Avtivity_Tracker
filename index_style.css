@@ -1,0 +1,129 @@
+body {
+    background-color: #002222;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Reiswar';
+    src: url('Reiswar.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'montserrat bold';
+    src: url('Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'poppins light';
+    src: url('Poppins-Light.ttf') format('truetype');
+}
+
+.Main_heading {
+    transform: translateY(200px);
+    max-width: 50%;
+    color: #f8f6f6;
+    padding: 100px;
+    font-family: cursive;
+    font-size: 21px;
+}
+
+.call-to-action button {
+    width: 110px;
+    display: inline-block;
+    background-color: #fffdfd;
+    color: #000000;
+    padding: 8px 10px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #fbfbfb;
+    color: #121111;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.2s, color 0.2s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: #b0ce38;
+    border: 1.5px solid #b0ce38;
+    transform: scale(110%);
+    transition: background-color 0.2s, color 0.2s, transform 0.3s;
+}
+
+.line {
+    width: 20%;
+    opacity: 50%;
+    border: none;
+    border-top: 3px solid #b0ce38;
+    border-radius: 5px;
+}
+
+.features {
+    width: 100%;
+    text-align: center;
+    margin: 360px 0;
+}
+
+#features {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 200px;
+}
+
+.feature {
+    background: linear-gradient(to bottom, #002222 85%, transparent 100%);
+    height: auto;
+    width: 288px;
+    height: 500px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    padding: 25px;
+}
+
+img {
+    width: 50%;
+    height: 30%;
+}
+
+.feature h2 {
+    font-size: 20px;
+    font-family: 'montserrat bold';
+    line-height: 20px;
+    padding: 10px 0;
+}
+
+.feature p {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: justify;
+    font-family: 'poppins light';
+}
+
+.call-to-action {
+    background-color: #00222200;
+    text-align: center;
+    padding: 50px 0;
+}
+
+footer {
+    background-color: #0a9579;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}

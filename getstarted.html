@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Daily Activity Tracking</title>
+    <!-- for calender -->
+
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendarify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="/gs_style.css">
+</head>
+
+<body>
+
+    <div id="header">
+        <div class="clockbox">
+            <div id="clock" style="float: right;"></div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="input-box">
+            <div class="calendar">
+                <input type="text" id="datePicker" class="flatpickr">
+            </div>
+        </div>
+
+        <div class="picker-box">
+            <div class="Box4">
+                <p>Screen Time</p>
+                <p class="screen-time">0 hrs 0 mins</p>
+            </div>
+            
+            
+            <div class="Box2" style="grid-row: span 2;"></div>
+            <div class="Box3">
+                
+                <p>Loading...</p>
+            </div>
+            <div class="Box1">
+                <button class = "picker picker-selected" id="mainData">Main</button>
+                <button class = "picker " id="shortData">Short</button>
+                <button class = "picker" id="aiEvaluatedData">AI Eval</button>
+            </div>
+            <div class="Box5">
+                <div class="devices">
+                    <div class="device">
+                        <svg fill="#000000" width="48px" height="48px" viewBox="-12.26 0 55.078 55.078" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="smart_phone" data-name="smart phone" d="M210.354,661.926H184.746a2.475,2.475,0,0,0-2.472,2.472v50.136a2.478,2.478,0,0,0,2.472,2.47h25.61a2.476,2.476,0,0,0,2.469-2.472V664.4A2.472,2.472,0,0,0,210.354,661.926Zm-10.079,49.081a2.723,2.723,0,1,1-2.726-2.716A2.737,2.737,0,0,1,200.275,711.007Zm9.8-4.989H185.032V667.191h25.037Z" transform="translate(-182.274 -661.926)"></path> </g></svg>
+                        <p>60%</p>
+                    </div>
+                    <div class="device">
+                        <svg fill="#000000" width="48px" height="48px" viewBox="0 -6.75 59.695 59.695" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="computer_screen" data-name="computer screen" d="M627.9,145.513a2.507,2.507,0,0,0-2.5-2.505H570.713a2.511,2.511,0,0,0-2.506,2.506v35.481a2.516,2.516,0,0,0,2.506,2.5h20.9v.656a3.193,3.193,0,0,1-2.074,2.732h-.342c-.966,0-1.4.546-1.4,1.085v.156c0,.541.43,1.085,1.4,1.085h17.725c.965,0,1.4-.544,1.4-1.085v-.156c0-.539-.431-1.085-1.4-1.085h-.346a3.2,3.2,0,0,1-2.07-2.737V183.5h20.9a2.51,2.51,0,0,0,2.5-2.506l0-5.705Zm-34.8,41.36a4.872,4.872,0,0,0,.829-2.724V183.5h8.24v.656a4.874,4.874,0,0,0,.83,2.719Zm30.532-12.155H572.473V146.6h51.164Z" transform="translate(-568.207 -143.008)"></path> </g></svg>
+                        <p>5%</p>
+                    </div>
+                    <div class="device">
+                        <svg fill="#000000" width="50px" height="50px" viewBox="0 -14.72 65.708 65.708" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="laptop" d="M925.918,388.308V359.217a1.905,1.905,0,0,0-1.892-1.9H872.84a1.9,1.9,0,0,0-1.888,1.9v29.089h-5.373v3.39a1.9,1.9,0,0,0,1.893,1.892H929.4a1.9,1.9,0,0,0,1.885-1.892v-3.39Zm-50.742-26.867h46.515v24.676H875.176Z" transform="translate(-865.579 -357.315)"></path> </g></svg>
+                        <p>35%</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        
+        <div class="pie-display">
+            <div class="pieChart">
+                <canvas id="pieChart"></canvas>
+            </div>
+            
+        </div>
+
+        <div class="data-display">
+                <canvas height="550px" width="900px" id="myChart" ></canvas>
+                <p class="Title">Tracking Chart</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="three.r134.min.js"></script>
+    <script src="vanta.waves.min.js"></script>
+    <script>
+        VANTA.WAVES({
+            el: "#header",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 100.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            shininess: 100.00,
+            waveSpeed: 1,
+            waveHeight: 30.00,
+            zoom: 1,
+            color: 0x02222
+        })
+    </script>
+    <script src="/graph_json.js"></script>
+    <script>
+    </script>
+
+</body>

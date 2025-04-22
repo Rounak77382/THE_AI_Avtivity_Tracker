@@ -1,0 +1,63 @@
+# Data directories - contain user activity data
+datas/
+new_datas/
+
+# AI evaluation files
+fine_tuning_data/
+*_AI_Evaluated.json
+*_prod_percent.json
+*_short.json
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment and configuration
+.env
+.venv
+env/
+venv/
+ENV/
+config.ini
+
+# Logs
+*.log
+logs/
+
+# User-specific files
+*.json_names.json
+
+# Fonts (optional resources)
+*.ttf
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OpenAI API keys or credentials
+*apikey*
+*credentials*
+
+#other
+*.zip
+*.tar.gz
+*.tar.bz2
+*.whl
+gemma_fine_tuning/
+cvzone/
+openface/
+scripts/
+datasets/

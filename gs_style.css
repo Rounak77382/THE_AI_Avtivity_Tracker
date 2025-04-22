@@ -1,0 +1,491 @@
+body {
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'digital';
+    src: url('digital-7.ttf');
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 40px;
+    opacity: 1;
+    background-color: transparent;
+    color: #000000;
+    text-align: center;
+    padding: 6px 12px;
+}
+
+@font-face {
+    font-family: 'zero';
+    src: url('zero\ hour.otf') format('opentype');
+}
+
+.clockbox {
+    background-color: rgba(255, 255, 255, 0.11);
+    padding: 5px;
+    border-radius: 3px;
+    transition: transform 0.2s;
+}
+
+.clockbox:hover {
+    transform: scale(1.1);
+}
+
+#clock {
+    font-family: 'digital';
+    color: rgb(166, 238, 159);
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+
+
+.main {
+    background-color: #f2f2f2;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-rows:38vh 50vh;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 10px 300px;
+
+    
+}
+
+.main > * {
+    
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+}
+
+
+p {
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.daily-activity {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.activity-chart {
+    text-align: center;
+    width: 80%;
+}
+
+footer {
+    background-color: #3498db;
+    color: #000000;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    padding: 5px;
+    text-decoration: none;
+    color: aliceblue;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.input-box {
+    width: 100%;
+    
+}
+
+.picker-box > *{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center; 
+}
+
+.picker{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #163d57;
+    padding: auto;
+    border: transparent;
+    background-color: #ffffff;
+    border-radius: 10%;
+    font-size: 20px;
+    outline: none;
+    transition: background-color 0.5s;
+    cursor: pointer;
+    margin: 0 2px;
+    width: 100%;
+    height: 100%; 
+}
+
+.picker-selected{
+    border-left: 2px solid #3498db;
+    border-right: 2px solid #3498db;
+    border-top: transparent;
+    border-bottom: transparent;
+}
+
+.picker:hover {
+    background-color: #c0fbff;
+}
+
+.pie-display{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.Box2 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    align-items: start;
+}
+.Box2 p{
+    margin: 0 0 0 15px;
+    color: #3498db;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+
+}
+.process-item{
+    font-size: 13px;
+}
+
+.process-item ul {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    list-style: none; /* Remove bullet points */
+    padding: 0px; /* Remove padding */
+    height: 11px;
+    margin-left: 15px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+}
+
+.process-list-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.process-list-item .process-name {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.process-list-item .process-time {
+    text-align: right;
+}
+
+.process-item li {
+    margin: 5px; /* Add some space after each item */
+    
+}
+.process-name {
+    font-weight: bold;
+    text-align: left;
+}
+
+
+.process-time {
+    color: #131212;
+    text-align: right;
+}
+
+.pieChart{
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+}
+.calendar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 0px solid #ff000000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#datePicker:hover {
+    border-color: #e74c3c;
+}
+
+.picker-box{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    
+}
+
+.picker-box > * {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.267);
+}
+
+
+.data-display {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+
+}
+
+
+/* 
+#datePicker {
+
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+#datePicker:hover {
+    border-color: #e74c3c;
+} */
+
+
+.flatpickr-calendar {
+    font-size: large;
+    width: 450px; /* Adjust as needed */
+    height: 330px; /* Adjust as needed */
+}
+
+.flatpickr-current-month{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    padding: 4.48px 0 0 0;
+    height: 26px;
+}
+
+
+select .flatpickr-monthDropdown-months{
+    margin: 4px 0 0 0;
+}
+
+
+.flatpickr-monthDropdown-months{
+    text-align: center;
+}
+
+.flatpickr-months{
+    background-color: #eaf1fb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month{
+    height: 24px;
+    padding: 5px;
+}
+
+.flatpickr-weekdays{
+    background-color: #2d75b4;
+}
+
+.flatpickr-day {
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+}
+
+span.flatpickr-weekday{
+    color: rgba(255, 250, 244, 0.925);
+}
+
+.flatpickr-rContainer{
+    width: 100%;
+}
+
+.flatpickr-days{
+    width: 446.875px;
+}
+
+
+.dayContainer{
+    margin-top: 12px;
+    width: 453.875px;
+    max-width: none;
+
+}
+
+.dayContainer > *{
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #3498db;
+}
+
+
+.pi {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+@property --p {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
+
+.pie {
+    --p: 20;
+    --b: 22px;
+    --c: darkred;
+    --w: 150px;
+    width: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    margin: 5px;
+    place-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.pie:before,
+.pie:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.pie:before {
+    inset: 0;
+    background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat, conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+    mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+}
+
+.pie:after {
+    inset: calc(50% - var(--b)/2);
+    background: var(--c);
+    transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+}
+
+.animate {
+    animation: p 1s .5s both;
+}
+
+.no-round:before {
+    background-size: 0 0, auto;
+}
+
+.no-round:after {
+    content: none;
+}
+
+.Box5{
+    height: auto;
+}
+
+.devices{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1px 0;
+
+}
+
+.device p{
+    text-align: center;
+}
+
+.device{
+    margin: 0 31px;
+    padding-top: 18px;
+}
+
+.Box3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    color: #3498db;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.Box3 p{
+    margin: 0 0 0 20px;
+    color: #3498db;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+
+
+}
+
+.Box4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 15px;
+    color: #3498db;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.Box4 p{
+    margin: 0 0 0 20px;
+
+    
+    
+}
+
+.screen-time{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 15px;
+    color: black;
+    font-family: monospace;
+    font-size: 30px;
+}
+@keyframes p {
+    from {
+        --p: 0
+    }
+}
