@@ -86,10 +86,3 @@ The Activity Tracker script monitors running processes on your computer and coll
 - **`final_data_set.json`:** The merged and cleaned dataset ready for analysis.
 - **false_processes.txt & true_processes.txt:** Lists of processes categorized as non-productive and productive, respectively.
 
-## Illustrations
-
-Below are some examples of how the project works:
-
-![Sample Output](illustrations/sample_output.png)
-
-The sample output displays the graphical interface of the tracker and visualizations of user activity over time.
