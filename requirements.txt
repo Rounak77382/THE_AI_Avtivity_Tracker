@@ -1,0 +1,14 @@
+flask
+opencv-python
+cvzone
+mediapipe==0.10.11
+pygetwindow
+prettytable
+wcwidth
+ipywidgets
+ipython
+PyQt5
+pynput
+emoji
+bardapi
+requests
