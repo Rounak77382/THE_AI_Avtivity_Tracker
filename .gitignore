@@ -49,6 +49,13 @@ desktop.ini
 *apikey*
 *credentials*
 
+# AI Model Files (Local)
+models/qwen3_activity_tracker/
+models/qwen3_activity_lora/
+models/checkpoints/
+dataset/
+final_data_set.json
+
 #other
 *.zip
 *.tar.gz
@@ -57,5 +64,3 @@ desktop.ini
 gemma_fine_tuning/
 cvzone/
 openface/
-scripts/
-datasets/
