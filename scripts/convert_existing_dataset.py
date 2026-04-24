@@ -20,7 +20,7 @@ import re
 _HERE       = os.path.dirname(os.path.abspath(__file__))
 _PROJ_ROOT  = os.path.dirname(_HERE)
 
-INPUT_FILE  = os.path.join(_PROJ_ROOT, "final_data_set.json")
+INPUT_FILE  = os.path.join(_PROJ_ROOT, "extras/datasets/final_data_set.json")
 OUTPUT_FILE = os.path.join(_PROJ_ROOT, "dataset", "train.jsonl")
 
 SYSTEM_PROMPT = (

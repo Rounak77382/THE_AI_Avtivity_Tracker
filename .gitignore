@@ -65,3 +65,4 @@ gemma_fine_tuning/
 cvzone/
 openface/
 extras/datasets/
+unsloth_compiled_cache/

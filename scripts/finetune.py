@@ -11,21 +11,62 @@ Input  : dataset/merged_train.jsonl
 Output : models/qwen3_activity_lora/ (PEFT adapter weights)
 """
 
+# Unsloth/Triton Windows Compatibility Hack
+import sys
 import os
+import importlib.machinery
+from types import ModuleType
+
+def mock_triton():
+    from dataclasses import dataclass
+    from typing import Any
+
+    class Mock(ModuleType):
+        def __init__(self, name):
+            super().__init__(name)
+            self.__file__ = os.path.abspath(__file__)
+            self.__path__ = []
+            self.__spec__ = importlib.machinery.ModuleSpec(name, None)
+            self.__version__ = "3.0.0"
+        def __getattr__(self, name):
+            if name == "AttrsDescriptor":
+                @dataclass
+                class AttrsDescriptor:
+                    divisible_by_16: Any = None
+                    equal_to_1: Any = None
+                    ids_of_folded_args: Any = None
+                return AttrsDescriptor
+            if name == "__all__": return []
+            return Mock(f"{self.__name__}.{name}")
+        def __call__(self, *args, **kwargs): return Mock("call")
+        def __mro_entries__(self, bases):
+            return (type(self.__name__, (), {}),)
+
+    class TritonLoader:
+        def create_module(self, spec):
+            return Mock(spec.name)
+        def exec_module(self, module):
+            module.Config = type("Config", (), {"__init__": lambda *args, **kwargs: None})
+
+    class TritonImportFinder:
+        def find_spec(self, fullname, path, target=None):
+            if fullname == "triton" or fullname.startswith("triton."):
+                return importlib.machinery.ModuleSpec(fullname, TritonLoader())
+            return None
+
+    sys.meta_path.insert(0, TritonImportFinder())
+    print("DEBUG: Global Triton import interceptor applied")
+
+mock_triton()
+
+# Unsloth MUST be imported before transformers/trl/peft
+from unsloth import FastLanguageModel
+from unsloth.chat_templates import get_chat_template
+
 import torch
 from datasets import load_dataset
-from transformers import TrainingArguments
-from trl import DataCollatorForSeq2Seq, SFTTrainer
-
-# Unsloth is required
-try:
-    from unsloth import FastLanguageModel
-    from unsloth.chat_templates import get_chat_template
-except ImportError as exc:
-    raise SystemExit(
-        "Unsloth is not installed. Please follow the setup guide or run:\n"
-        "pip install unsloth"
-    ) from exc
+from transformers import TrainingArguments, DataCollatorForSeq2Seq
+from trl import SFTTrainer
 
 # ── Config ────────────────────────────────────────────────────────────────────
 _HERE        = os.path.dirname(os.path.abspath(__file__))
@@ -34,7 +75,7 @@ DATA_FILE    = os.path.join(_PROJ_ROOT, "dataset", "merged_train.jsonl")
 OUT_CHECKPTS = os.path.join(_PROJ_ROOT, "models", "checkpoints")
 OUT_LORA     = os.path.join(_PROJ_ROOT, "models", "qwen3_activity_lora")
 
-MODEL_ID     = "unsloth/Qwen3-1.7B-Instruct-bnb-4bit"
+MODEL_ID     = "unsloth/Qwen3-1.7B-unsloth-bnb-4bit"
 MAX_SEQ_LEN  = 512
 
 if not os.path.exists(DATA_FILE):
@@ -62,7 +103,7 @@ if __name__ == "__main__":
         model,
         r              = 16,
         lora_alpha     = 16,
-        lora_dropout   = 0.05,
+        lora_dropout   = 0,
         target_modules = [
             "q_proj", "k_proj", "v_proj", "o_proj",
             "gate_proj", "up_proj", "down_proj"
@@ -113,7 +154,7 @@ if __name__ == "__main__":
             learning_rate               = 2e-4,
             fp16                        = not torch.cuda.is_bf16_supported(),
             bf16                        = torch.cuda.is_bf16_supported(),
-            logging_steps               = 10,
+            logging_steps               = 1,
             output_dir                  = OUT_CHECKPTS,
             save_strategy               = "epoch",
             report_to                   = "none",
